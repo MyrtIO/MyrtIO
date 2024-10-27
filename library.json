@@ -1,0 +1,23 @@
+{
+    "name": "MyrtIO",
+    "version": "1.0.1",
+    "description": "A framework for easy building of IoT devices",
+    "keywords": "framework",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/MyrtIO/MyrtIO.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Mikhael Khrustik",
+        "email": "misha@myrt.co",
+        "url": "https://myrt.co"
+      }
+    ],
+    "license": "MIT",
+    "frameworks": "Arduino",
+    "platforms": "*"
+  }
+  
