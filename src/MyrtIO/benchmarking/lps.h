@@ -1,6 +1,6 @@
 #pragma once
 
-#include <MyrtIO/libs/device/unit.h>
+#include <MyrtIO/device/unit.h>
 #include <Attotime.h>
 
 namespace io {

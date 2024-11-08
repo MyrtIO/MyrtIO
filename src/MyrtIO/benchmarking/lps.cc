@@ -1,5 +1,5 @@
 #include "lps.h"
-#include <MyrtIO/libs/logging/logger.h>
+#include <MyrtIO/logging/logger.h>
 
 constexpr char* kLPSBenchmarkName = "LPSBenchmark";
 constexpr uint32_t kLPSBenchmarkInterval = 1000;

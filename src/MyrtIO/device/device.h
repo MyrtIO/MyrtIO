@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdint.h>
-#include "MyrtIO/libs/logging/logger.h"
+#include <MyrtIO/logging/logger.h>
 #include "unit.h"
 
 #define IO_DEVICE_MAX_CONTROLLERS 8

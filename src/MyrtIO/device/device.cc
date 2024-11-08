@@ -1,5 +1,5 @@
 #include "device.h"
-#include "MyrtIO/libs/logging/logger.h"
+#include <MyrtIO/logging/logger.h>
 
 #ifdef IO_BENCHMARK
 	#include "benchmark/io_benchmark.h"
