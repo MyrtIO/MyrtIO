@@ -1,5 +1,5 @@
-#include "io_device.h"
-#include "logger/io_logger.h"
+#include "device.h"
+#include "MyrtIO/libs/logging/logger.h"
 
 #ifdef IO_BENCHMARK
 	#include "benchmark/io_benchmark.h"
@@ -20,9 +20,9 @@ io::Logger* io::Device::log() {
 }
 
 bool io::Device::addUnit_(io::Unit* u, io::Unit** units, uint8_t* count) {
-	log_.builder()
-	    ->append("adding unit: ")
-	    ->append(u->name());
+	log_.build()
+	    .append("adding unit: ")
+	    .append(u->getName());
 	log_.flush();
 	if (*count >= IO_DEVICE_MAX_CONTROLLERS) {
 		log_.print("too many units of this type");

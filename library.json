@@ -1,15 +1,16 @@
 {
     "name": "MyrtIO",
-    "version": "1.0.1",
+    "version": "1.2.0",
     "description": "A framework for easy building of IoT devices",
     "keywords": "framework",
-    "repository":
-    {
+    "dependencies": {
+        "mishamyrt/attotime": "1.0.1"
+    },
+    "repository": {
       "type": "git",
       "url": "https://github.com/MyrtIO/MyrtIO.git"
     },
-    "authors":
-    [
+    "authors": [
       {
         "name": "Mikhael Khrustik",
         "email": "misha@myrt.co",

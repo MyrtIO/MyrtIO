@@ -1,8 +1,8 @@
 #pragma once
 
 #include <stdint.h>
-#include "io_unit.h"
-#include "logger/io_logger.h"
+#include "MyrtIO/libs/logging/logger.h"
+#include "unit.h"
 
 #define IO_DEVICE_MAX_CONTROLLERS 8
 #define IO_DEVICE_MAX_PLATFORMS 8
@@ -15,12 +15,11 @@ namespace io {
 			log_(Logger(name)) {};
 
 		Device* setup();
-
 		Logger* log();
 
 		void inline __attribute__((always_inline)) loop() {
 			// First loop over platforms, then controllers.
-			// Changes will be applied on next loop.
+			// Controller changes will be applied on next loop.
 			for (int i = 0; i < platformsCount_; i++) {
 				platforms_[i]->loop();
 			}
