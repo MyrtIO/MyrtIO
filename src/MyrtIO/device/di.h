@@ -9,7 +9,7 @@
     Type* getInstanceOf##Type() { return &instanceOf##Type; }
 
 // Defines header for instance of Type and DI helpers
-#define IO_DEFINE_INSTANCE(Type) \
+#define IO_PROVIDE_INSTANCE(Type) \
 	io::Unit* getUnitOf##Type(); \
     Type* getInstanceOf##Type()
 
