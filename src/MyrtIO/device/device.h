@@ -4,8 +4,8 @@
 #include <MyrtIO/logging/logger.h>
 #include "unit.h"
 
-#define IO_DEVICE_MAX_CONTROLLERS 8
-#define IO_DEVICE_MAX_PLATFORMS 8
+#define IO_DEVICE_MAX_CONTROLLERS 16
+#define IO_DEVICE_MAX_PLATFORMS 16
 
 namespace io {
 	class Device {
@@ -14,8 +14,8 @@ namespace io {
 			name_(name),
 			log_(Logger(name)) {};
 
-		Device* setup();
-		Logger* log();
+		Device& setup();
+		Logger& log();
 
 		void inline __attribute__((always_inline)) loop() {
 			// First loop over platforms, then controllers.
@@ -28,26 +28,14 @@ namespace io {
 			}
 		}
 
-		template <typename... Args> Device* controllers(Unit* last) {
-			addUnit_(last, &controllers_[0], &controllersCount_);
-			return this;
+		Device& registerPlatform(Unit* platform) {
+			addUnit_(platform, &platforms_[0], &platformsCount_);
+			return *this;
 		}
 
-		template <typename... Args>
-		Device* controllers(Unit* first, Args... args) {
-			addUnit_(first, &controllers_[0], &controllersCount_);
-			return controllers(args...);
-		}
-
-		template <typename... Args> Device* platforms(Unit* last) {
-			addUnit_(last, &platforms_[0], &platformsCount_);
-			return this;
-		}
-
-		template <typename... Args>
-		Device* platforms(Unit* first, Args... args) {
-			addUnit_(first, &platforms_[0], &platformsCount_);
-			return platforms(args...);
+		Device& registerController(Unit* controller) {
+			addUnit_(controller, &controllers_[0], &controllersCount_);
+			return *this;
 		}
 
 	private:

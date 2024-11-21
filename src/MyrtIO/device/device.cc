@@ -1,22 +1,22 @@
 #include "device.h"
 #include <MyrtIO/logging/logger.h>
 
-#ifdef IO_BENCHMARK
-	#include "benchmark/io_benchmark.h"
+#ifdef IO_LPS_BENCHMARK
+	#include <MyrtIO/benchmarking/lps.h>
 	#warning "Benchmarking enabled"
-	io::Benchmark ioBenchmark;
+	io::LPSBenchmark ioLPSBenchmark;
 #endif
 
-io::Device* io::Device::setup() {
+io::Device& io::Device::setup() {
 	log_.print("initializing...");
-#if IO_BENCHMARK
-	controllers(&ioBenchmark);
+#if IO_LPS_BENCHMARK
+	this->registerController(&ioLPSBenchmark);
 #endif
-	return this;
+	return *this;
 }
 
-io::Logger* io::Device::log() {
-	return &log_;
+io::Logger& io::Device::log() {
+	return log_;
 }
 
 bool io::Device::addUnit_(io::Unit* u, io::Unit** units, uint8_t* count) {
